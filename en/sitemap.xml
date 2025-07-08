@@ -14,18 +14,6 @@
                 href="https://algerwx.github.io/en/categories/"
                 />
   </url><url>
-    <loc>https://algerwx.github.io/en/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://algerwx.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="https://algerwx.github.io/en/"
-                />
-  </url><url>
     <loc>https://algerwx.github.io/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -36,6 +24,18 @@
                 rel="alternate"
                 hreflang="en-us"
                 href="https://algerwx.github.io/en/tags/"
+                />
+  </url><url>
+    <loc>https://algerwx.github.io/en/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://algerwx.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://algerwx.github.io/en/"
                 />
   </url>
 </urlset>
