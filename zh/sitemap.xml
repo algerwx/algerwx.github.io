@@ -2,64 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://algerwx.github.io/</loc>
+    <loc>http://192.168.124.131:1313/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="https://algerwx.github.io/en/"
+                href="http://192.168.124.131:1313/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://algerwx.github.io/"
+                href="http://192.168.124.131:1313/"
                 />
   </url><url>
-    <loc>https://algerwx.github.io/sections/testimonial/</loc>
+    <loc>http://192.168.124.131:1313/sections/testimonial/</loc>
   </url><url>
-    <loc>https://algerwx.github.io/authors/</loc>
+    <loc>http://192.168.124.131:1313/authors/</loc>
   </url><url>
-    <loc>https://algerwx.github.io/categories/</loc>
+    <loc>http://192.168.124.131:1313/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="https://algerwx.github.io/en/categories/"
+                href="http://192.168.124.131:1313/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://algerwx.github.io/categories/"
+                href="http://192.168.124.131:1313/categories/"
                 />
   </url><url>
-    <loc>https://algerwx.github.io/elements/</loc>
+    <loc>http://192.168.124.131:1313/elements/</loc>
   </url><url>
-    <loc>https://algerwx.github.io/authors/john-doe/</loc>
+    <loc>http://192.168.124.131:1313/authors/john-doe/</loc>
   </url><url>
-    <loc>https://algerwx.github.io/pages/</loc>
+    <loc>http://192.168.124.131:1313/pages/</loc>
   </url><url>
-    <loc>https://algerwx.github.io/privacy-policy/</loc>
+    <loc>http://192.168.124.131:1313/privacy-policy/</loc>
   </url><url>
-    <loc>https://algerwx.github.io/authors/sam-wilson/</loc>
+    <loc>http://192.168.124.131:1313/authors/sam-wilson/</loc>
   </url><url>
-    <loc>https://algerwx.github.io/sections/</loc>
+    <loc>http://192.168.124.131:1313/sections/</loc>
   </url><url>
-    <loc>https://algerwx.github.io/tags/</loc>
+    <loc>http://192.168.124.131:1313/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="https://algerwx.github.io/en/tags/"
+                href="http://192.168.124.131:1313/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://algerwx.github.io/tags/"
+                href="http://192.168.124.131:1313/tags/"
                 />
   </url><url>
-    <loc>https://algerwx.github.io/authors/william-jacob/</loc>
+    <loc>http://192.168.124.131:1313/authors/william-jacob/</loc>
   </url><url>
-    <loc>https://algerwx.github.io/contact/</loc>
+    <loc>http://192.168.124.131:1313/contact/</loc>
   </url><url>
-    <loc>https://algerwx.github.io/blog/</loc>
+    <loc>http://192.168.124.131:1313/blog/</loc>
   </url><url>
-    <loc>https://algerwx.github.io/about/</loc>
+    <loc>http://192.168.124.131:1313/about/</loc>
   </url>
 </urlset>
