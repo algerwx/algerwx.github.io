@@ -4,7 +4,7 @@
   "lang": "zh-cn",
   "display": "fullscreen",
   "orientation" : "portrait",
-  "start_url": "http://192.168.124.131:1313/?utm_source=web_app_manifest",
+  "start_url": "https://algerwx.github.io/?utm_source=web_app_manifest",
   "background_color": "#fff",
   "theme_color": "#000",
 
