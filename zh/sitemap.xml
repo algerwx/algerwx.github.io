@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://algerwx.github.io/</loc>
-    <lastmod>2025-07-20T21:00:00+00:00</lastmod>
+    <lastmod>2025-07-20T13:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -15,14 +15,8 @@
                 href="https://algerwx.github.io/"
                 />
   </url><url>
-    <loc>https://algerwx.github.io/blog/</loc>
-    <lastmod>2025-07-20T21:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://algerwx.github.io/sections/testimonial/</loc>
-  </url><url>
-    <loc>https://algerwx.github.io/authors/</loc>
-  </url><url>
     <loc>https://algerwx.github.io/categories/</loc>
+    <lastmod>2025-07-20T13:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -33,6 +27,35 @@
                 hreflang="zh-cn"
                 href="https://algerwx.github.io/categories/"
                 />
+  </url><url>
+    <loc>https://algerwx.github.io/categories/redis/</loc>
+    <lastmod>2025-07-20T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://algerwx.github.io/tags/redisson/</loc>
+    <lastmod>2025-07-20T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://algerwx.github.io/blog/redis/redisson-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2025-07-20T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://algerwx.github.io/tags/</loc>
+    <lastmod>2025-07-20T13:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://algerwx.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://algerwx.github.io/tags/"
+                />
+  </url><url>
+    <loc>https://algerwx.github.io/blog/</loc>
+    <lastmod>2025-07-20T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://algerwx.github.io/sections/testimonial/</loc>
+  </url><url>
+    <loc>https://algerwx.github.io/authors/</loc>
   </url><url>
     <loc>https://algerwx.github.io/elements/</loc>
   </url><url>
@@ -45,18 +68,6 @@
     <loc>https://algerwx.github.io/authors/sam-wilson/</loc>
   </url><url>
     <loc>https://algerwx.github.io/sections/</loc>
-  </url><url>
-    <loc>https://algerwx.github.io/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="https://algerwx.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://algerwx.github.io/tags/"
-                />
   </url><url>
     <loc>https://algerwx.github.io/authors/william-jacob/</loc>
   </url><url>

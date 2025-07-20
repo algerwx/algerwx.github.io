@@ -83,7 +83,7 @@
   
 
 
-<title>How to build an Application with modern Technology</title>
+<title>Redisson 使用教程</title>
 
 
 
@@ -186,13 +186,13 @@
 
 
 
-<meta property="og:title" content="How to build an Application with modern Technology" />
+<meta property="og:title" content="Redisson 使用教程" />
 <meta property="og:description" content="this is meta description" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://192.168.124.131:1313/blog/post-1/" />
 
 
-<meta name="twitter:title" content="How to build an Application with modern Technology" />
+<meta name="twitter:title" content="Redisson 使用教程" />
 <meta name="twitter:description" content="this is meta description" />
 
 
@@ -797,7 +797,7 @@
               loading="lazy" decoding="async"
               src="../../images/image-placeholder_hu_8da812934bbff7ba.png"
             class=" w-full rounded img"
-            alt="How to build an Application with modern Technology"
+            alt="Redisson 使用教程"
             width="1096"
             height="480" />
         </picture>
@@ -814,14 +814,14 @@
             </div>
           
           <h1 class="h2 mb-4">
-            How to build an Application with modern Technology
+            Redisson 使用教程
           </h1>
           <ul class="mb-4">
             <li class="mr-4 inline-block">
               <a
-                href="../../authors/john-doe/">
+                href="../../authors/sam-wilson/">
                 <i class="fa-regular fa-circle-user mr-2"></i
-                >John Doe
+                >Sam Wilson
               </a>
             </li>
             
@@ -830,24 +830,16 @@
                 <i class="fa-regular fa-folder mr-2"></i>
                 
                   <a
-                    href="../../categories/application/"
+                    href="../../categories/redis/"
                     class=""
-                    >Application
-                      ,
-                    
-                  </a>
-                
-                  <a
-                    href="../../categories/data/"
-                    class=""
-                    >Data
+                    >Redis
                   </a>
                 
               </li>
             
             <li class="mr-4 inline-block">
               <i class="fa-regular fa-clock mr-2"></i>
-              2022年4月4日
+              2025年7月20日
             </li>
           </ul>
           <div class="content mb-10">
@@ -864,19 +856,224 @@
   </summary>
   <nav id="TableOfContents">
   <ol>
-    <li><a href="#creative-design">Creative Design</a></li>
+    <li><a href="#1-依赖引入maven">1. 依赖引入（Maven）</a></li>
+    <li><a href="#2-配置-spring-boot">2. 配置 (Spring boot)</a></li>
+    <li><a href="#3-注入-redisson-对象">3. 注入 redisson 对象</a></li>
+    <li><a href="#4-分布式锁案例">4. 分布式锁案例</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#字符串string--rbucket">​​字符串（String）- RBucket</a></li>
+    <li><a href="#hash---rmap">Hash - RMap</a></li>
+    <li><a href="#列表list--rlist">列表（List） - <code>RList</code></a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#分布式锁lock--rlock">分布式锁（Lock） - <code>RLock</code></a></li>
+    <li><a href="#布隆过滤器---rbloomfilter">布隆过滤器 - RBloomFilter</a></li>
+    <li><a href="#延迟队列--rdelayedqueue">延迟队列 - RDelayedQueue</a></li>
   </ol>
 </nav>
 </details>
 
-            <p>Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!</p>
-<h2 id="creative-design">Creative Design</h2>
-<p>Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.</p>
-<blockquote>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!</p></blockquote>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!</p>
-
+            <h1 id="redisson-是什么">Redisson 是什么？</h1>
+<ul>
+<li>定位：基于 Redis 的 Java 分布式服务框架，提供高阶 API 简化开发</li>
+<li>核心价值
+<ul>
+<li>将分布式锁、队列、集合等复杂功能封装为类似 JDK 的 API</li>
+<li>自动管理连接、序列化、故障恢复，减少样板代码</li>
+</ul>
+</li>
+</ul>
+<h1 id="快速使用方式">快速使用方式</h1>
+<h2 id="1-依赖引入maven">1. 依赖引入（Maven）</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.redisson<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>redisson-spring-boot-starter<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>3.18.0<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h2 id="2-配置-spring-boot">2. 配置 (Spring boot)</h2>
+<p>application.yaml</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">spring</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">redis</span>:  <span style="color:#75715e"># Redisson 专有配置</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">redisson</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">file</span>: <span style="color:#ae81ff">classpath:singleRedisson.yaml</span>
+</span></span></code></pre></div><p>singleRedisson.yaml</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">singleServerConfig</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">address</span>: <span style="color:#e6db74">&#34;redis://127.0.0.1:6379&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">connectionMinimumIdleSize</span>: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">connectionPoolSize</span>: <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">connectTimeout</span>: <span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">5000</span>
+</span></span></code></pre></div><h2 id="3-注入-redisson-对象">3. 注入 redisson 对象</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Autowired</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> RedissonClient  redissonClient;
+</span></span></code></pre></div><h2 id="4-分布式锁案例">4. 分布式锁案例</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">redisLockOne</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    RLock lock <span style="color:#f92672">=</span> redissonClient.<span style="color:#a6e22e">getLock</span>(<span style="color:#e6db74">&#34;lock&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> tryTimes <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>lock.<span style="color:#a6e22e">tryLock</span>()) {
+</span></span><span style="display:flex;"><span>            tryTimes<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>            Thread.<span style="color:#a6e22e">sleep</span>(2000);
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;尝试获取锁: &#34;</span><span style="color:#f92672">+</span>tryTimes);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;获取锁成功&#34;</span>);
+</span></span><span style="display:flex;"><span>        redisLockTwo();
+</span></span><span style="display:flex;"><span>        Thread.<span style="color:#a6e22e">sleep</span>(10000);
+</span></span><span style="display:flex;"><span>    }<span style="color:#66d9ef">catch</span> (Exception e){
+</span></span><span style="display:flex;"><span>        e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>    }<span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>        lock.<span style="color:#a6e22e">unlock</span>();
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;释放锁&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>使用 redisson 很方便的实现了分布式锁。</p>
+<h1 id="常见操作">常见操作</h1>
+<h2 id="字符串string--rbucket">​​字符串（String）- RBucket</h2>
+<ul>
+<li>
+<p>核心方法</p>
+<ul>
+<li><code>set(value)</code>:  存储字符串或对象 自动序列化</li>
+<li><code>get()</code>:  获取值</li>
+<li><code>expore(duration,timeUnit)</code>: 设置过期时间</li>
+</ul>
+</li>
+<li>
+<p>示例</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">@RequestBody</span> RedisParm redisParm) {  
+</span></span><span style="display:flex;"><span>    String key <span style="color:#f92672">=</span> redisParm.<span style="color:#a6e22e">getKey</span>();  
+</span></span><span style="display:flex;"><span>    String value <span style="color:#f92672">=</span> redisParm.<span style="color:#a6e22e">getValue</span>();  
+</span></span><span style="display:flex;"><span>    RBucket<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> bucket <span style="color:#f92672">=</span> redissonClient.<span style="color:#a6e22e">getBucket</span>(key);  
+</span></span><span style="display:flex;"><span>    bucket.<span style="color:#a6e22e">set</span>(value, 30, TimeUnit.<span style="color:#a6e22e">SECONDS</span>); <span style="color:#75715e">// 存储并设置30秒过期  </span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="hash---rmap">Hash - RMap</h2>
+<ul>
+<li>
+<p>核心方法</p>
+<ul>
+<li><code>put(key,value)</code>: 添加字段</li>
+<li><code>get(key)</code>: 获取值</li>
+<li><code>expore(duration,timeUnit)</code>: 设置整个哈希的过期时间</li>
+</ul>
+</li>
+<li>
+<p>示例</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setHash</span>() {  
+</span></span><span style="display:flex;"><span>    RMap<span style="color:#f92672">&lt;</span>String, Integer<span style="color:#f92672">&gt;</span> userMap <span style="color:#f92672">=</span> redissonClient.<span style="color:#a6e22e">getMap</span>(<span style="color:#e6db74">&#34;user:2&#34;</span>);  
+</span></span><span style="display:flex;"><span>    userMap.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;age&#34;</span>, 30);  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> age <span style="color:#f92672">=</span> userMap.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;age&#34;</span>);  
+</span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(age);  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="列表list--rlist">列表（List） - <code>RList</code></h2>
+<ul>
+<li>核心方法
+<ul>
+<li><code>add(element)</code>：添加元素</li>
+<li><code>get(index)</code>：获取元素</li>
+<li><code>remove(element)</code>：删除元素</li>
+</ul>
+</li>
+<li>示例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>RList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> taskList <span style="color:#f92672">=</span> redissonClient.<span style="color:#a6e22e">getList</span>(<span style="color:#e6db74">&#34;tasks&#34;</span>); taskList.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Task1&#34;</span>); 
+</span></span><span style="display:flex;"><span>String firstTask <span style="color:#f92672">=</span> taskList.<span style="color:#a6e22e">get</span>(0);
+</span></span></code></pre></div><h1 id="高级分布式功能">高级分布式功能​</h1>
+<h2 id="分布式锁lock--rlock">分布式锁（Lock） - <code>RLock</code></h2>
+<ul>
+<li>​​核心方法​​：
+<ul>
+<li><code>tryLock(waitTime, leaseTime, timeUnit)</code>：非阻塞尝试加锁</li>
+<li><code>lock()</code>：阻塞式加锁</li>
+<li><code>unlock()</code>：释放锁</li>
+</ul>
+</li>
+<li>​场景​​：秒杀库存扣减、定时任务排他执行。</li>
+<li>​​示例​：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">redisLockOne</span>() {  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    RLock lock <span style="color:#f92672">=</span> redissonClient.<span style="color:#a6e22e">getLock</span>(<span style="color:#e6db74">&#34;lock&#34;</span>);  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> tryTimes <span style="color:#f92672">=</span> 0;  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>lock.<span style="color:#a6e22e">tryLock</span>()) {  
+</span></span><span style="display:flex;"><span>            tryTimes<span style="color:#f92672">++</span>;  
+</span></span><span style="display:flex;"><span>            Thread.<span style="color:#a6e22e">sleep</span>(2000);  
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;尝试获取锁: &#34;</span><span style="color:#f92672">+</span>tryTimes);  
+</span></span><span style="display:flex;"><span>        }  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;获取锁成功&#34;</span>);  
+</span></span><span style="display:flex;"><span>        redisLockTwo();  <span style="color:#75715e">//可重入</span>
+</span></span><span style="display:flex;"><span>        Thread.<span style="color:#a6e22e">sleep</span>(10000);  
+</span></span><span style="display:flex;"><span>    }<span style="color:#66d9ef">catch</span> (Exception e){  
+</span></span><span style="display:flex;"><span>        e.<span style="color:#a6e22e">printStackTrace</span>();  
+</span></span><span style="display:flex;"><span>    }<span style="color:#66d9ef">finally</span> {  
+</span></span><span style="display:flex;"><span>        lock.<span style="color:#a6e22e">unlock</span>();  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;释放锁&#34;</span>);  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">redisLockTwo</span>() {  
+</span></span><span style="display:flex;"><span>    RLock lock <span style="color:#f92672">=</span> redissonClient.<span style="color:#a6e22e">getLock</span>(<span style="color:#e6db74">&#34;lock&#34;</span>);  
+</span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;redisLockTwo 尝试获取到锁&#34;</span>);  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> tryTimes <span style="color:#f92672">=</span> 0;  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>lock.<span style="color:#a6e22e">tryLock</span>()) {  
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;redisLockTwo 尝试获取到锁&#34;</span> <span style="color:#f92672">+</span> tryTimes<span style="color:#f92672">++</span>);  
+</span></span><span style="display:flex;"><span>        }  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;redisLockTwo 获取到锁&#34;</span>);  
+</span></span><span style="display:flex;"><span>    }<span style="color:#66d9ef">catch</span> (Exception e){  
+</span></span><span style="display:flex;"><span>        e.<span style="color:#a6e22e">printStackTrace</span>();  
+</span></span><span style="display:flex;"><span>    }<span style="color:#66d9ef">finally</span> {  
+</span></span><span style="display:flex;"><span>        lock.<span style="color:#a6e22e">unlock</span>();  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;释放锁&#34;</span>);  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="布隆过滤器---rbloomfilter">布隆过滤器 - RBloomFilter</h2>
+<ul>
+<li>
+<p>​方法​：</p>
+<ul>
+<li><code>tryInit(expectedInsertions, falseProbability)</code>：初始化</li>
+<li><code>add(element)</code>, <code>contains(element)</code></li>
+</ul>
+</li>
+<li>
+<p>​场景​：大规模数据去重（如爬虫URL判重）。</p>
+</li>
+<li>
+<p>示例</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>RBloomFilter<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> filter <span style="color:#f92672">=</span> redisson.<span style="color:#a6e22e">getBloomFilter</span>(<span style="color:#e6db74">&#34;url_filter&#34;</span>); 
+</span></span><span style="display:flex;"><span>filter.<span style="color:#a6e22e">tryInit</span>(1000000L, 0.<span style="color:#a6e22e">03</span>); <span style="color:#75715e">// 预期100万数据，3%误判率 </span>
+</span></span><span style="display:flex;"><span>filter.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;https://example.com&#34;</span>); 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">boolean</span> exists <span style="color:#f92672">=</span> filter.<span style="color:#a6e22e">contains</span>(<span style="color:#e6db74">&#34;https://example.com&#34;</span>);
+</span></span></code></pre></div><h2 id="延迟队列--rdelayedqueue">延迟队列 - RDelayedQueue</h2>
+<ul>
+<li>
+<p>方法​​：<code>offer(element, delay, timeUnit)</code></p>
+</li>
+<li>
+<p>​场景​​：订单超时关闭、延迟消息通知。</p>
+</li>
+<li>
+<p>示例</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>RQueue<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> queue <span style="color:#f92672">=</span> redissonClient.<span style="color:#a6e22e">getQueue</span>(<span style="color:#e6db74">&#34;delayed_tasks&#34;</span>);  
+</span></span><span style="display:flex;"><span>RDelayedQueue<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> delayedQueue <span style="color:#f92672">=</span> redissonClient.<span style="color:#a6e22e">getDelayedQueue</span>(queue);  
+</span></span><span style="display:flex;"><span>delayedQueue.<span style="color:#a6e22e">offer</span>(<span style="color:#e6db74">&#34;check_order&#34;</span>, 40, TimeUnit.<span style="color:#a6e22e">SECONDS</span>);
+</span></span></code></pre></div>
           </div>
           <div class="row items-start justify-between">
             
@@ -888,8 +1085,8 @@
                     <li class="inline-block">
                       <a
                         class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="../../tags/nextjs/">
-                        Nextjs
+                        href="../../tags/technology/">
+                        Technology
                       </a>
                     </li>
                   
@@ -948,7 +1145,7 @@
   
     <a
       class="share-link share-x"
-      href="https://x.com/intent/tweet/?text=How%20to%20build%20an%20Application%20with%20modern%20Technology&amp;url=http%3a%2f%2f192.168.124.131%3a1313%2fblog%2fpost-1%2f"
+      href="https://x.com/intent/tweet/?text=Redisson%20%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b&amp;url=http%3a%2f%2f192.168.124.131%3a1313%2fblog%2fpost-1%2f"
       target="_blank"
       rel="noopener"
       aria-label="share x">
@@ -966,7 +1163,7 @@
   
     <a
       class="share-link share-email"
-      href="mailto:?subject=How%20to%20build%20an%20Application%20with%20modern%20Technology&amp;body=http%3a%2f%2f192.168.124.131%3a1313%2fblog%2fpost-1%2f"
+      href="mailto:?subject=Redisson%20%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b&amp;body=http%3a%2f%2f192.168.124.131%3a1313%2fblog%2fpost-1%2f"
       target="_self"
       rel="noopener"
       aria-label="share email">
@@ -1039,10 +1236,10 @@
           type="text"
           placeholder="Enter Fediverse Instance URL"
           class="fediverse-input"
-          onkeypress="handleFediverseShare(event, 'http:\/\/192.168.124.131:1313\/blog\/post-1\/', 'How to build an Application with modern Technology')" />
+          onkeypress="handleFediverseShare(event, 'http:\/\/192.168.124.131:1313\/blog\/post-1\/', 'Redisson 使用教程')" />
         <button
           class="fediverse-check-button"
-          onclick="handleFediverseShareButton(this, 'http:\/\/192.168.124.131:1313\/blog\/post-1\/', 'How to build an Application with modern Technology')">
+          onclick="handleFediverseShareButton(this, 'http:\/\/192.168.124.131:1313\/blog\/post-1\/', 'Redisson 使用教程')">
           Share
         </button>
       </span>

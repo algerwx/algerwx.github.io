@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data on Hugoplate</title>
-    <link>https://algerwx.github.io/categories/data/</link>
-    <description>Recent content in Data on Hugoplate</description>
+    <title>Data on 吴心</title>
+    <link>http://192.168.124.131:1313/categories/data/</link>
+    <description>Recent content in Data on 吴心</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 04 Apr 2022 05:00:00 +0000</lastBuildDate>
-    <atom:link href="https://algerwx.github.io/categories/data/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Apr 2022 13:00:00 +0000</lastBuildDate>
+    <atom:link href="http://192.168.124.131:1313/categories/data/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to build an Application with modern Technology</title>
-      <link>https://algerwx.github.io/blog/post-1/</link>
-      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
-      <guid>https://algerwx.github.io/blog/post-1/</guid>
-      <description>&lt;p&gt;Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.&lt;/p&gt;</description>
+      <title>Redisson 使用教程</title>
+      <link>http://192.168.124.131:1313/blog/post-1/</link>
+      <pubDate>Mon, 04 Apr 2022 13:00:00 +0000</pubDate>
+      <guid>http://192.168.124.131:1313/blog/post-1/</guid>
+      <description>&lt;h1 id=&#34;redisson-是什么&#34;&gt;Redisson 是什么？&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;定位：基于 Redis 的 Java 分布式服务框架，提供高阶 API 简化开发&lt;/li&gt;&#xA;&lt;li&gt;核心价值&#xA;&lt;ul&gt;&#xA;&lt;li&gt;将分布式锁、队列、集合等复杂功能封装为类似 JDK 的 API&lt;/li&gt;&#xA;&lt;li&gt;自动管理连接、序列化、故障恢复，减少样板代码&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;快速使用方式&#34;&gt;快速使用方式&lt;/h1&gt;&#xA;&lt;h2 id=&#34;1-依赖引入maven&#34;&gt;1. 依赖引入（Maven）&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.redisson&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;redisson-spring-boot-starter&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;3.18.0&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-配置-spring-boot&#34;&gt;2. 配置 (Spring boot)&lt;/h2&gt;&#xA;&lt;p&gt;application.yaml&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
